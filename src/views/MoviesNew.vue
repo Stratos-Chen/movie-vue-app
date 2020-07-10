@@ -14,6 +14,8 @@
       <div>
         <label>Plot:</label>
         <input type="text" class="form-control" v-model="newMoviePlot">
+        <small class="char count" v-if="plot.length <= 100">{{ 100 - plot.length }} characters remaining</small>
+        <small class="char count max" v-if="plot.length > 100">You have exceeded the max limit</small>
       </div>
       <input type="submit" class="btn btn-primary" value="Submit">
     </form>

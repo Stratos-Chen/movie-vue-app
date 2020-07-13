@@ -10,7 +10,7 @@
       <button>Sort Alphabetically</button>
     </div>
     <div v-for="movie in movies">
-      <h2>{{ movie.title }}<h2>
+      <h2>{{ movie.title }}</h2>
       <p>Year: {{ movie.year }}</p>
         <router-link v-bind:to="`/movies/${movie.id}`">More Info</router-link>
       <button v-on:click="showMovie(movie)">More Info</button>

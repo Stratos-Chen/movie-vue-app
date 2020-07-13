@@ -10,7 +10,6 @@
       Year: <input type="text" v-model="newMovieYear"> <br>
       Plot: <input type="text" v-model="newMoviePlot"> <br>
       Director: <input type="text" v-model="newMovieDirector"> <br>
-      English: <input type="text" v-model="newMovieEnglish"> <br>
       <button v-on:click="createMovie()">Create new movie</button>
     </div>
 
@@ -19,7 +18,6 @@
       <p>Year: {{ movie.year }}</p>
       <p>Plot: {{ movie.plot }}</p>
       <p>Director: {{ movie.director }}</p>
-      <p>English: {{ movie.english }}</p>
       <button v-on:click="showMovie(movie)">More Info</button>
     </div>
 
@@ -30,7 +28,6 @@
         <p>Year: <input type="text" v-model="currentMovie.year"></p>
         <p>Plot: <input type="text" v-model="currentMovie.plot"></p>
         <p>Director: <input type="text" v-model="currentMovie.director"></p>
-        <p>English: <input type="text" v-model="currentMOvie.english"></p>
         <button v-on:click="updateMovie(currentMovie)">Update movie</button>
         <button v-on:click="destroyMovie(currentMovie)">Delete movie</button>
         <button>Close</button>
@@ -57,7 +54,6 @@ export default {
       newMovieYear: "",
       newMoviePlot: "",
       newMovieDirector: "",
-      newMovieEnglish: "",
       currentMovie: {}
     };
   },
@@ -76,8 +72,7 @@ export default {
         title: this.newMovieTitle,
         year: this.newMovieYear,
         plot: this.newMoviePlot,
-        director: this.newMovieDirector,
-        english: this.newMovieEnglish
+        director: this.newMovieDirector
       };
       axios
         .post("/api/movies", params)
@@ -100,8 +95,7 @@ export default {
         title: movie.title,
         year: movie.year,
         plot: movie.plot,
-        director: movie.director,
-        english: movie.english
+        director: movie.director
       };
       axios
         .patch(`/api/movies/${movie.id}`, params)
